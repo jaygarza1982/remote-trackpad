@@ -1,5 +1,6 @@
 const WebSocket = require('ws');
 const http = require('http');
+const indexFile = require('./res/index.html').file;
 
 const PORT = 3000;
 
@@ -7,7 +8,7 @@ const PORT = 3000;
 const server = http.createServer((req, res) => {
     console.log(`Received ${req.url}`);
     res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.end('<h1>WebSocket Server</h1>');
+    res.end(indexFile);
 });
 
 // Create a WebSocket server by passing the HTTP server instance
